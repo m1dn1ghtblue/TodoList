@@ -18,12 +18,24 @@ function todoFactory(title, dueDate, priority = 0, description) {
 		priority = newPriority;
 	}
 
+	let _isCompleted = false;
+
+	function isCompleted() {
+		return _isCompleted;
+	}
+
+	function toggleState() {
+		_isCompleted = !_isCompleted;
+	}
+
 	return {
 		title,
 		dueDate,
 		description,
 		getPriority,
 		setPriority,
+		isCompleted,
+		toggleState,
 	};
 }
 
