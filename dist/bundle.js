@@ -110,13 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"projectFactory\": () => (/* binding */ projectFactory)\n/* harmony export */ });\n/* harmony import */ var _todo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./todo */ \"./src/todo.js\");\n\r\n\r\nfunction projectFactory(title) {\r\n\tconst todoList = [];\r\n\r\n\tfunction addTodo(todo) {\r\n\t\tif (todoList.find(todo)) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t\ttodoList.push(todo);\r\n\t}\r\n\r\n\tfunction removeTodo(todo) {\r\n\t\tconst index = todoList.indexOf(todo);\r\n\t\tif (index != -1) {\r\n\t\t\ttodoList.splice(index, 1);\r\n\t\t}\r\n\t}\r\n\r\n\treturn {\r\n\t\ttitle,\r\n\t\taddTodo,\r\n\t\tremoveTodo,\r\n\t};\r\n}\r\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/project.js?");
+
+/***/ }),
+
 /***/ "./src/script.js":
 /*!***********************!*\
   !*** ./src/script.js ***!
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ \"./src/style.scss\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ \"./src/style.scss\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://todo-list/./src/script.js?");
 
 /***/ }),
 
