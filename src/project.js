@@ -1,5 +1,3 @@
-import { todoFactory } from './todo';
-
 function projectFactory(title) {
 	const todoList = [];
 
