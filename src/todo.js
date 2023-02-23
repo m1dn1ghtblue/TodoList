@@ -1,11 +1,6 @@
 const MAX_PRIORITY = 3;
-const MAX_TITLE_LENGTH = 50;
 
 function todoFactory(title, dueDate, priority = 0, description) {
-	if (title.length > MAX_TITLE_LENGTH) {
-		throw new TodoException(`title length is greater than maximum allowed length: ${MAX_TITLE_LENGTH}`);
-	}
-
 	function getPriority() {
 		return priority;
 	}
