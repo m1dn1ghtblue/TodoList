@@ -21,14 +21,12 @@ main {
 	height: 100vh;
 	display: grid;
 	grid-template-columns: 320px 1fr;
-	grid-template-rows: 120px 1fr;
-	grid-template-areas: 'sidebar header'
-						 'sidebar content';
 	color: $black;
 }
 
 #sidebar { 
-	grid-area: sidebar;
+	overflow: scroll;
+	grid-column: 1/2;
 	width: 100%;
 	height: 100%;
 	background-color: $primary;
@@ -88,10 +86,5 @@ main {
 			}
 		}
 	}
-}
-
-#header {
-	grid-area: header;
-	background-color: $primary-light;
 }
 
