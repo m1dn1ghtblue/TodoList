@@ -1,11 +1,8 @@
 import './styles/style.scss';
 import { todoFactory } from './todo.js';
 import { projectFectory } from './project.js';
-import { tabAll } from './tab_all.js';
 
 const contentContaier = document.getElementById('content-container');
-
-switchTab(tabAll);
 
 function switchTab(tabFactory) {
 	clearContent();
