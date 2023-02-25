@@ -126,27 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ \"./src/styles/style.scss\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _tab_all_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab_all.js */ \"./src/tab_all.js\");\n\r\n\r\n\r\n\r\n\r\nconst contentContaier = document.getElementById('content-container');\r\n\r\nswitchTab(_tab_all_js__WEBPACK_IMPORTED_MODULE_3__.tabAll);\r\n\r\nfunction switchTab(tabFactory) {\r\n\tclearContent();\r\n\tconst content = tabFactory();\r\n\tcontentContaier.appendChild(content);\r\n}\r\n\r\nfunction clearContent() {\r\n\twhile (contentContaier.lastChild) {\r\n\t\tcontentContaier.removeChild(contentContaier.lastChild);\r\n\t}\r\n}\r\n\n\n//# sourceURL=webpack://todo-list/./src/script.js?");
-
-/***/ }),
-
-/***/ "./src/tabFactory.js":
-/*!***************************!*\
-  !*** ./src/tabFactory.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"tabFactory\": () => (/* binding */ tabFactory)\n/* harmony export */ });\nfunction tabFactory(tabName) {\r\n\tconst content = document.createElement('div');\r\n\tcontent.classList.add('content');\r\n\r\n\t// header\r\n\tconst header = document.createElement('div');\r\n\theader.classList.add('header');\r\n\theader.textContent = tabName;\r\n\tconst divider = document.createElement('hr');\r\n\theader.appendChild(divider);\r\n\tcontent.appendChild(header);\r\n\r\n\treturn content;\r\n}\r\n\n\n//# sourceURL=webpack://todo-list/./src/tabFactory.js?");
-
-/***/ }),
-
-/***/ "./src/tab_all.js":
-/*!************************!*\
-  !*** ./src/tab_all.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"tabAll\": () => (/* binding */ tabAll)\n/* harmony export */ });\n/* harmony import */ var _tabFactory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tabFactory */ \"./src/tabFactory.js\");\n\r\n\r\nfunction tabAll() {\r\n\tconst content = (0,_tabFactory__WEBPACK_IMPORTED_MODULE_0__.tabFactory)('All tasks');\r\n\r\n\treturn content;\r\n}\r\n\n\n//# sourceURL=webpack://todo-list/./src/tab_all.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ \"./src/styles/style.scss\");\n/* harmony import */ var _todo_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo.js */ \"./src/todo.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n\r\n\r\n\r\n\r\nconst contentContaier = document.getElementById('content-container');\r\n\r\nfunction switchTab(tabFactory) {\r\n\tclearContent();\r\n\tconst content = tabFactory();\r\n\tcontentContaier.appendChild(content);\r\n}\r\n\r\nfunction clearContent() {\r\n\twhile (contentContaier.lastChild) {\r\n\t\tcontentContaier.removeChild(contentContaier.lastChild);\r\n\t}\r\n}\r\n\n\n//# sourceURL=webpack://todo-list/./src/script.js?");
 
 /***/ }),
 
