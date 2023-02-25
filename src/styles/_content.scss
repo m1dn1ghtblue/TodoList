@@ -1,12 +1,12 @@
 @import './colors';
 
-#content {
+.content {
 	display: flex;
 	flex-direction: column;
 	padding: 32px 64px;
 	.header {
 		text-transform: uppercase;
-		font-size: 1.6rem;
+		font-size: 2rem;
 		font-weight: 700;
 		color: $black;
 
