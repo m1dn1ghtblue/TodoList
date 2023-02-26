@@ -1,6 +1,14 @@
+import createUid from './uidGenerator';
+
 const MAX_PRIORITY = 3;
 
 function todoFactory(title, dueDate, priority = 0, description) {
+	const _id = 'todoid_' + createUid();
+
+	function getId() {
+		return _id;
+	}
+
 	function getPriority() {
 		return priority;
 	}
@@ -32,6 +40,7 @@ function todoFactory(title, dueDate, priority = 0, description) {
 		title,
 		dueDate,
 		description,
+		getId,
 		getPriority,
 		setPriority,
 		isCompleted,

@@ -1,4 +1,4 @@
-export function tabFactory(tabName) {
+export default function tabFactory(tabName) {
 	const content = document.createElement('div');
 	content.classList.add('content');
 
