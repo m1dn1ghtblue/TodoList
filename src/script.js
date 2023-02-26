@@ -1,6 +1,7 @@
 import './styles/style.scss';
 import { todoFactory } from './todo.js';
 import tabFactory from './tabFactory';
+import todoStorage from './todoStorage';
 
 const contentContaier = document.getElementById('content-container');
 

@@ -14,7 +14,7 @@ export default (function () {
 	}
 
 	function addKey(key) {
-		if (registry.includes(key)) {
+		if (registry.todoKeys.includes(key)) {
 			throw RegistryException.duplicateKey(key);
 		}
 
@@ -33,13 +33,18 @@ export default (function () {
 	}
 
 	function containsKey(key) {
-		return registry.includes(key);
+		return registry.todoKeys.includes(key);
+	}
+
+	function getKeys() {
+		return registry.todoKeys;
 	}
 
 	return {
 		addKey,
 		deleteKey,
 		containsKey,
+		getKeys,
 	};
 })();
 
