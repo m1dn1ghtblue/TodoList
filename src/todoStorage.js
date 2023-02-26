@@ -1,53 +1,21 @@
-export default (function TodoRegistry() {
-	// initialize
-	let registry;
+import todoRegistry from './todoRegistry.js';
 
-	if (!localStorage.getItem('todoRegistry')) {
-		registry = { todoKeys: [] };
-		localStorage.setItem('todoRegistry', JSON.stringify(registry));
-	} else {
-		registry = JSON.parse(localStorage.getItem('todoRegistry'));
-	}
-
-	function _updateRegistry() {
-		localStorage.setItem('todoRegistry', JSON.stringify(registry));
-	}
-
-	function _addKey(key) {
-		registry.todoKeys.push(key);
-		_updateRegistry();
-	}
-
-	function __deleteKey(key) {
-		const index = registry.todoKeys.indexOf(key);
-		if (index == -1) {
-			return;
-		}
-
-		registry.todoKeys.splice(index, 1);
-		_updateRegistry();
-	}
-
+export default (function TodoStorage() {
 	function addTodo(todo) {
-		// TODO validation before inserting into local storage
 		const id = todo.getId();
+		todoRegistry.addKey(id);
 		localStorage.setItem(id, JSON.stringify(todo));
-		_addKey(id);
 	}
 
-	function removeTodo(todo) {
-		const id = todo.getId;
-		if (!registry.todoKeys.includes(id)) {
-			return;
-		}
-
+	function deleteTodo(todo) {
+		const id = todo.getId();
+		todoRegistry.deleteKey(id);
 		localStorage.removeItem(id);
-		__deleteKey(id);
 	}
 
 	function updateTodo(todo) {
 		const id = todo.getId();
-		if (registry.indexOf(id) == -1) {
+		if (!todoRegistry.containsKey(id)) {
 			addTodo(todo);
 			return;
 		}
@@ -57,7 +25,7 @@ export default (function TodoRegistry() {
 
 	return {
 		addTodo,
-		removeTodo,
+		deleteTodo,
 		updateTodo,
 	};
 })();
