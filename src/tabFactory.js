@@ -26,6 +26,7 @@ export default function tabFactory(tabName, todoList = []) {
 function todoItemFactory(todo) {
 	const item = document.createElement('div');
 	item.classList.add('todo-item');
-	item.textContent = todo.title;
+	item.textContent = todo.title + ' ' + todo.id;
+	item.setAttribute('priority', todo.priority);
 	return item;
 }

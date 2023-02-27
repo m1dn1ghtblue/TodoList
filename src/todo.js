@@ -2,56 +2,27 @@ import createUid from './uidGenerator';
 
 const MAX_PRIORITY = 3;
 
-function todoFactory(title, dueDate, priority = 0, description) {
-	const _id = 'todoid_' + createUid();
-
-	function getId() {
-		return _id;
+export default class Todo {
+	constructor(title, dueDate, priority = 0) {
+		this._id = 'todoid_' + createUid();
+		this.title = title;
+		this.dueDate = dueDate;
+		this._priority = priority;
 	}
 
-	function getPriority() {
-		return priority;
+	get priority() {
+		return this._priority;
 	}
 
-	function setPriority(newPriority) {
-		if (newPriority == undefined) {
-			priority = 0;
+	set priority(value) {
+		if (value < 0 || value > MAX_PRIORITY) {
+			throw new Error(`Invalid task priority: ${value}`);
 		}
-		if (newPriority < 0) {
-			throw new TodoException('Cannot assign negative priority');
-		}
-		if (newPriority > MAX_PRIORITY) {
-			throw new TodoException(`Cannot assign priority higher than maximum priority: ${MAX_PRIORITY}`);
-		}
-		priority = newPriority;
+
+		this._priority = this.priority;
 	}
 
-	let _isCompleted = false;
-
-	function isCompleted() {
-		return _isCompleted;
-	}
-
-	function toggleState() {
-		_isCompleted = !_isCompleted;
-	}
-
-	return {
-		title,
-		dueDate,
-		description,
-		getId,
-		getPriority,
-		setPriority,
-		isCompleted,
-		toggleState,
-	};
-}
-
-class TodoException extends Error {
-	constructor(message) {
-		super(message);
+	get id() {
+		return this._id;
 	}
 }
-
-export { todoFactory, TodoException };
