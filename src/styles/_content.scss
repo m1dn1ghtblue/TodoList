@@ -18,4 +18,34 @@
 			background: linear-gradient(90deg,  $primary-light, $accent-green);
 		}
 	}
+
+	.todo-list {
+		padding: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		.todo-item {
+			display: flex;
+			gap: 16px;
+			width: 100%;
+			padding: 16px 24px;
+			border-radius: 12px;
+			background-color: white;
+
+			&[priority='0'] {
+				border-left: 12px solid $accent-green;
+			}
+
+			&[priority='1'] {
+				border-left: 12px solid $primary-light;
+			}
+
+			&[priority='2'] {
+				border-left: 12px solid $accent-red;
+			}
+
+			
+		}
+	}
 }
