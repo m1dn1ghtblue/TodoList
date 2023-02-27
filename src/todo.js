@@ -8,6 +8,7 @@ export default class Todo {
 		this.title = title;
 		this.dueDate = dueDate;
 		this._priority = priority;
+		this._isCompleted = false;
 	}
 
 	get priority() {
@@ -24,5 +25,13 @@ export default class Todo {
 
 	get id() {
 		return this._id;
+	}
+
+	get isCompleted() {
+		return this._isCompleted;
+	}
+
+	toggleComplete() {
+		this._isCompleted = !this._isCompleted;
 	}
 }
