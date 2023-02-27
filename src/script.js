@@ -10,10 +10,10 @@ const todayBtn = document.getElementById('nav-today');
 const weekBtn = document.getElementById('nav-week');
 const completedbtn = document.getElementById('nav-completed');
 
-switchTab(tabFactory('All tasks'), allBtn);
+switchTab(tabFactory('All tasks', todoStorage.getAllTodos()), allBtn);
 
 allBtn.addEventListener('click', () => {
-	switchTab(tabFactory('All tasks'), allBtn);
+	switchTab(tabFactory('All tasks', todoStorage.getAllTodos()), allBtn);
 });
 todayBtn.addEventListener('click', () => {
 	switchTab(tabFactory('Tasks for today'), todayBtn);

@@ -1,4 +1,4 @@
-export default function tabFactory(tabName) {
+export default function tabFactory(tabName, todoList = []) {
 	const content = document.createElement('div');
 	content.classList.add('content');
 
@@ -12,5 +12,20 @@ export default function tabFactory(tabName) {
 	header.appendChild(divider);
 	content.appendChild(header);
 
+	const list = document.createElement('div');
+	list.classList.add('todo-list');
+	content.appendChild(list);
+
+	for (let todo of todoList) {
+		list.appendChild(todoItemFactory(todo));
+	}
+
 	return content;
+}
+
+function todoItemFactory(todo) {
+	const item = document.createElement('div');
+	item.classList.add('todo-item');
+	item.textContent = todo.title;
+	return item;
 }
