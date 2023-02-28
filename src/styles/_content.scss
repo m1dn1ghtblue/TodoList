@@ -33,7 +33,6 @@
 		}
 
 		#add-item-btn, .todo-item {
-			display: flex;
 			align-items: center;
 			width: 100%;
 			height: 64px;
@@ -43,6 +42,7 @@
 		}
 
 		#add-item-btn {
+			display: flex;
 			background-color: $secondary-light;
 			color: $secondary-black;
 			border: none;
@@ -61,6 +61,8 @@
 
 
 		.todo-item {
+			display: grid;
+			grid-template-columns: max-content 1fr max-content 32px 32px;
 			background-color: white;
 
 			&[priority='0'] {
@@ -74,6 +76,20 @@
 			&[priority='2'] {
 				border-left: 16px solid $accent-red;
 			}	
+
+			.todo-title {
+				font-size: 1.1rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.complete-cb {
+			}
+
+			.todo-edit-btn, .todo-delete-btn {
+				width: 32px;
+				height: 32px;
+			}
 		}
 	}
 }
