@@ -20,7 +20,7 @@ export default class Todo {
 			throw new Error(`Invalid task priority: ${value}`);
 		}
 
-		this._priority = this.priority;
+		this._priority = value;
 	}
 
 	get id() {

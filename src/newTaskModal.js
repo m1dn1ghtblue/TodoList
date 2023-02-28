@@ -4,20 +4,23 @@ import taskList from './taskList';
 
 export default function openModal(todo = null) {
 	const container = document.getElementById('modal-container');
-	container.classList.add('open');
-	container.addEventListener('click', (event) => {
-		if (event.target == container) {
-			container.classList.remove('open');
-		}
-	});
-
 	const form = document.getElementById('edit-task-form');
 	const titleInput = document.getElementById('title-input');
 	const dateInput = document.getElementById('date-input');
 	const prioritySelect = document.getElementById('priority-select');
 
+	container.classList.add('open');
+	container.addEventListener('click', (event) => {
+		if (event.target == container) {
+			container.classList.remove('open');
+			form.reset();
+		}
+	});
+
 	if (todo) {
-		// TODO current value set
+		titleInput.value = todo.title;
+		dateInput.value = todo.dueDate;
+		prioritySelect.value = todo.priority;
 	}
 
 	form.onsubmit = () => {
@@ -25,8 +28,11 @@ export default function openModal(todo = null) {
 		const dueDate = dateInput.value;
 		const priority = prioritySelect.value;
 
-		if (todo) {
-			// TODO update
+		if (todo != null) {
+			todo.title = title;
+			todo.dueDate = dueDate;
+			todo.priority = priority;
+			todoStorage.updateTodo(todo);
 		} else {
 			todo = new Todo(title, dueDate, priority);
 			todoStorage.addTodo(todo);
@@ -40,5 +46,6 @@ export default function openModal(todo = null) {
 	const cancelButton = document.getElementById('edit-cancel-btn');
 	cancelButton.addEventListener('click', () => {
 		container.classList.remove('open');
+		form.reset();
 	});
 }
