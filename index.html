@@ -141,6 +141,32 @@
 			</section>
 
 			<section id="content-container"></section>
+
+			<div id="modal-container">
+				<div id="modal">
+					<h2>Edit task</h2>
+					<form>
+						<label for="title-input">
+							Title
+							<input type="text" id="title-input" />
+						</label>
+						<label for="date-input">
+							Due date
+							<input type="date" id="date-input" />
+						</label>
+						<label for="priority-select">
+							Priority
+							<select name="Priority" id="priority-select">
+								<option value="0">Low</option>
+								<option value="1" selected>Usual</option>
+								<option value="2">High</option>
+							</select>
+						</label>
+
+						<button type="button" id="submit-btn">Submit</button>
+					</form>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
