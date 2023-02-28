@@ -1,8 +1,13 @@
 import todoStorage from './todoStorage';
 import openModal from './newTaskModal';
+import { endOfWeek, format, min, startOfWeek } from 'date-fns';
 
 export default (function taskList() {
 	const list = document.getElementById('todo-list');
+
+	let maxDate = null;
+	let minDate = null;
+	let completeFilter = null;
 
 	function _clear() {
 		while (list.lastChild) {
@@ -10,16 +15,51 @@ export default (function taskList() {
 		}
 	}
 
+	function filter(todo) {
+		if (completeFilter && todo.isCompleted != completeFilter) return false;
+		if (minDate && (!todo.dueDate || minDate > todo.dueDate)) return false;
+		if (maxDate && (!todo.dueDate || maxDate < todo.dueDate)) return false;
+
+		return true;
+	}
+
 	function updateList() {
 		_clear();
 		const todos = todoStorage.getAllTodos();
 		for (let todo of todos) {
-			list.appendChild(todoItemFactory(todo, updateList));
+			if (filter(todo)) {
+				list.appendChild(todoItemFactory(todo, updateList));
+			}
 		}
+	}
+
+	function resetFilters() {
+		minDate = null;
+		maxDate = null;
+		completeFilter = null;
+	}
+
+	function filterToday() {
+		minDate = maxDate = format(new Date(), 'yyyy-MM-dd');
+		console.log(minDate);
+	}
+
+	function filterWeek() {
+		const today = new Date();
+		minDate = format(startOfWeek(today, { weekStartsOn: 1 }), 'yyyy-MM-dd');
+		maxDate = format(endOfWeek(today, { weekStartsOn: 1 }), 'yyyy-MM-dd');
+	}
+
+	function filterCompleted(state = true) {
+		completeFilter = state;
 	}
 
 	return {
 		updateList,
+		resetFilters,
+		filterToday,
+		filterWeek,
+		filterCompleted,
 	};
 })();
 

@@ -7,6 +7,7 @@ const todayBtn = document.getElementById('nav-today');
 const weekBtn = document.getElementById('nav-week');
 const completedBtn = document.getElementById('nav-completed');
 const addTaskBtn = document.getElementById('add-item-btn');
+
 taskList.updateList();
 
 addTaskBtn.addEventListener('click', () => {
@@ -14,15 +15,25 @@ addTaskBtn.addEventListener('click', () => {
 });
 
 allBtn.addEventListener('click', () => {
+	taskList.resetFilters();
 	switchTab(allBtn, 'All tasks');
 });
+
 todayBtn.addEventListener('click', () => {
+	taskList.resetFilters();
+	taskList.filterToday();
 	switchTab(todayBtn, 'Tasks for today');
 });
+
 weekBtn.addEventListener('click', () => {
+	taskList.resetFilters();
+	taskList.filterWeek();
 	switchTab(weekBtn, 'Tasks for the week');
 });
+
 completedBtn.addEventListener('click', () => {
+	taskList.resetFilters();
+	taskList.filterCompleted(true);
 	switchTab(completedBtn, 'Completed tasks');
 });
 
