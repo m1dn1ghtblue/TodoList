@@ -1,39 +1,40 @@
 import './styles/style.scss';
-import tabFactory from './tabFactory';
-import todoStorage from './todoStorage';
-
-const contentContaier = document.getElementById('content-container');
+import openModal from './newTaskModal';
+import taskList from './taskList';
 
 const allBtn = document.getElementById('nav-all');
 const todayBtn = document.getElementById('nav-today');
 const weekBtn = document.getElementById('nav-week');
-const completedbtn = document.getElementById('nav-completed');
+const completedBtn = document.getElementById('nav-completed');
+const addTaskBtn = document.getElementById('add-item-btn');
+taskList.updateList();
 
-switchTab(tabFactory('All tasks', todoStorage.getAllTodos()), allBtn);
+addTaskBtn.addEventListener('click', () => {
+	openModal(null);
+});
 
 allBtn.addEventListener('click', () => {
-	switchTab(tabFactory('All tasks', todoStorage.getAllTodos()), allBtn);
+	switchTab(allBtn, 'All tasks');
 });
 todayBtn.addEventListener('click', () => {
-	switchTab(tabFactory('Tasks for today'), todayBtn);
+	switchTab(todayBtn, 'Tasks for today');
 });
 weekBtn.addEventListener('click', () => {
-	switchTab(tabFactory('Tasks for this week'), weekBtn);
+	switchTab(weekBtn, 'Tasks for the week');
 });
-completedbtn.addEventListener('click', () => {
-	switchTab(tabFactory('Completed tasks'), completedbtn);
+completedBtn.addEventListener('click', () => {
+	switchTab(completedBtn, 'Completed tasks');
 });
 
-function switchTab(tab, navBtn) {
-	clearContent();
-	contentContaier.appendChild(tab);
-	navBtn?.classList.add('open');
+function switchTab(navBtn, tabTitle) {
+	closeTabs();
+	navBtn.classList.add('open');
+	const tabLabel = document.getElementById('tab-label');
+	tabLabel.innerText = tabTitle;
+	taskList.updateList();
 }
 
-function clearContent() {
-	while (contentContaier.lastChild) {
-		contentContaier.removeChild(contentContaier.lastChild);
-	}
+function closeTabs() {
 	const openNavBtns = document.getElementsByClassName('open');
 	for (let btn of openNavBtns) {
 		btn.classList.remove('open');

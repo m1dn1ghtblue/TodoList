@@ -1,5 +1,6 @@
 import Todo from './todo';
 import todoStorage from './todoStorage';
+import taskList from './taskList';
 
 export default function openModal(todo = null) {
 	const container = document.getElementById('modal-container');
@@ -19,7 +20,6 @@ export default function openModal(todo = null) {
 		// TODO current value set
 	}
 
-	const submitBtn = document.getElementById('edit-submit-btn');
 	form.onsubmit = () => {
 		const title = titleInput.value;
 		const dueDate = dateInput.value;
@@ -28,9 +28,11 @@ export default function openModal(todo = null) {
 		if (todo) {
 			// TODO update
 		} else {
-			todoStorage.addTodo(new Todo(title, dueDate, priority));
+			todo = new Todo(title, dueDate, priority);
+			todoStorage.addTodo(todo);
 		}
 
+		taskList.updateList();
 		container.classList.remove('open');
 		form.reset();
 	};

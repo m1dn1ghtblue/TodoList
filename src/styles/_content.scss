@@ -1,10 +1,11 @@
 @import './colors';
 
-.content {
+#content {
 	display: flex;
 	flex-direction: column;
 	padding: 32px 64px;
-	.header {
+
+	#header {
 		text-transform: uppercase;
 		font-size: 2rem;
 		font-weight: 700;
@@ -19,13 +20,19 @@
 		}
 	}
 
-	.todo-list {
+	#todo-list-container {
 		padding: 32px;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
 
-		.add-item-btn, .todo-item {
+		#todo-list {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+		}
+
+		#add-item-btn, .todo-item {
 			display: flex;
 			align-items: center;
 			width: 100%;
@@ -35,7 +42,7 @@
 			gap: 16px;
 		}
 
-		.add-item-btn {
+		#add-item-btn {
 			background-color: $secondary-light;
 			color: $secondary-black;
 			border: none;

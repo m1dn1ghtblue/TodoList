@@ -6,6 +6,7 @@ export default (function TodoStorage() {
 		const id = todo.id;
 		todoRegistry.addKey(id);
 		localStorage.setItem(id, JSON.stringify(todo));
+		return todo;
 	}
 
 	function deleteTodo(todo) {
