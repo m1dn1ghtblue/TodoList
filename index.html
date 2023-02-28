@@ -140,7 +140,31 @@
 				</div>
 			</section>
 
-			<section id="content-container"></section>
+			<section id="content">
+				<div id="header">
+					<h3 id="tab-label">All tasks</h3>
+					<hr />
+				</div>
+				<div id="todo-list-container">
+					<button id="add-item-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="2.2"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+							/>
+						</svg>
+						<h4>Add task</h4>
+					</button>
+					<div id="todo-list"></div>
+				</div>
+			</section>
 
 			<div id="modal-container">
 				<div id="modal">
@@ -148,7 +172,7 @@
 					<form id="edit-task-form">
 						<label for="title-input">
 							Title
-							<input type="text" id="title-input" required />
+							<input type="text" id="title-input" required autocomplete="off" />
 						</label>
 						<label for="date-input">
 							Due date
