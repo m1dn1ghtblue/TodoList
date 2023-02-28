@@ -1,0 +1,83 @@
+@import './colors';
+
+#modal-container {
+	display: none;
+	&.open {
+		display: flex;
+	}
+
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+
+	padding-top: 128px;
+	justify-content: center;
+
+
+	#modal {		
+		height: fit-content;
+		background-color: white;
+		border-radius: 12px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		padding: 24px 32px;
+		gap: 24px;
+		box-shadow: 0px 5px 16px 6px rgba(49, 57, 60, 0.15);
+
+		h2 {
+			color: $primary;
+			font-size: 1.8rem;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 32px;
+			width: 100%;
+
+			label {
+				width: 100%;
+				display: grid;
+				grid-template-columns: 1fr 2fr;
+				gap: 32px;
+				align-items: center;
+				justify-items: end;
+				font-size: 1.2rem;
+				font-weight: 700;
+
+				input, select {
+					padding: 0 8px;
+					border-radius: 8px;
+					border: 3px solid $secondary-darker;
+					background-color: white;
+					height: 36px;
+					font-size: 1rem;
+					justify-self: start;
+				}
+			}
+
+			#submit-btn {
+				border: none;
+				width: 60%;
+				height: 42px;
+				border-radius: 8px;
+				cursor: pointer;
+				text-align: center;
+				background-color: $primary;
+				font-weight: 700;
+				font-size: 1.2rem;
+				color: white;
+				box-shadow: 0px 4px 8px 1px rgba(49, 57, 60, 0.2);
+
+				&:hover {
+					background-color: $primary-light;
+				}
+			}
+		}
+	}
+}

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 @import './sidebar';
 @import './content';
+@import './modal';
 
 * {
 	padding: 0;
@@ -9,7 +10,7 @@
 	box-sizing: border-box;
 }
 
-html, button {
+html, button, input, select {
 	font-size: 18px;
 	font-family: 'Nunito', sans-serif;
 }
