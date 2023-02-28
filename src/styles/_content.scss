@@ -1,4 +1,5 @@
 @import './colors';
+@import './checkbox';
 
 #content {
 	display: flex;
@@ -78,17 +79,28 @@
 			}	
 
 			.todo-title {
-				font-size: 1.1rem;
+				font-size: 1.2rem;
 				overflow: hidden;
 				text-overflow: ellipsis;
 			}
 
 			.complete-cb {
+				@include custom-checkbox(28px, $primary-light);
+			}
+
+			.todo-date {
+				color: $primary;
 			}
 
 			.todo-edit-btn, .todo-delete-btn {
 				width: 32px;
 				height: 32px;
+			}
+
+			&[completed=true] {
+				.todo-title {
+					opacity: 0.5;
+				}
 			}
 		}
 	}

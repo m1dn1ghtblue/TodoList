@@ -25,6 +25,8 @@ export default (function taskList() {
 function todoItemFactory(todo) {
 	const item = document.createElement('div');
 	item.classList.add('todo-item');
+	item.setAttribute('priority', todo.priority);
+	item.setAttribute('completed', todo.isCompleted);
 
 	//check
 	const completedCheck = document.createElement('input');
@@ -34,6 +36,7 @@ function todoItemFactory(todo) {
 	completedCheck.addEventListener('click', () => {
 		todo.toggleComplete();
 		todoStorage.updateTodo(todo);
+		item.setAttribute('completed', todo.isCompleted);
 	});
 	item.appendChild(completedCheck);
 
@@ -42,7 +45,6 @@ function todoItemFactory(todo) {
 	todoTitle.classList.add('todo-title');
 	todoTitle.textContent = todo.title;
 	item.appendChild(todoTitle);
-	item.setAttribute('priority', todo.priority);
 
 	// due date
 	const date = todo.dueDate;
