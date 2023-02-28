@@ -17,6 +17,7 @@
 
 
 	#modal {		
+		position: relative;
 		height: fit-content;
 		background-color: white;
 		border-radius: 12px;
@@ -61,7 +62,7 @@
 				}
 			}
 
-			#submit-btn {
+			#edit-submit-btn {
 				border: none;
 				width: 60%;
 				height: 42px;
@@ -73,10 +74,28 @@
 				font-size: 1.2rem;
 				color: white;
 				box-shadow: 0px 4px 8px 1px rgba(49, 57, 60, 0.2);
+				transition-duration: 0.2s;
 
 				&:hover {
 					background-color: $primary-light;
 				}
+			}
+		}
+
+		#edit-cancel-btn {
+			width: 32px;
+			height: 32px;
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			color: $secondary-darker;
+			position: absolute;
+			right: 16px;
+			top: 16px;
+			transition-duration: 0.1s;
+
+			&:hover {
+				color: $accent-red;
 			}
 		}
 	}

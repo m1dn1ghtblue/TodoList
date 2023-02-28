@@ -26,10 +26,11 @@ export default function tabFactory(tabName, todoList = []) {
 	addItem.innerHTML =
 		'<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg><h4>Add task</h4>';
 
-	addItem.addEventListener('click', openModal);
+	addItem.addEventListener('click', () => {
+		openModal();
+	});
 
 	list.appendChild(addItem);
-
 	for (let todo of todoList) {
 		list.appendChild(todoItemFactory(todo));
 	}
@@ -40,7 +41,7 @@ export default function tabFactory(tabName, todoList = []) {
 function todoItemFactory(todo) {
 	const item = document.createElement('div');
 	item.classList.add('todo-item');
-	item.textContent = todo.title + ' ' + todo.id;
+	item.textContent = todo.title;
 	item.setAttribute('priority', todo.priority);
 	return item;
 }

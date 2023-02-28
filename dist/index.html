@@ -145,10 +145,10 @@
 			<div id="modal-container">
 				<div id="modal">
 					<h2>Edit task</h2>
-					<form>
+					<form id="edit-task-form">
 						<label for="title-input">
 							Title
-							<input type="text" id="title-input" />
+							<input type="text" id="title-input" required />
 						</label>
 						<label for="date-input">
 							Due date
@@ -163,7 +163,18 @@
 							</select>
 						</label>
 
-						<button type="button" id="submit-btn">Submit</button>
+						<button type="submit" id="edit-submit-btn">Submit</button>
+						<button type="button" id="edit-cancel-btn">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+							>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+						</button>
 					</form>
 				</div>
 			</div>
