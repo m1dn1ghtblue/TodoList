@@ -1,6 +1,6 @@
 import todoStorage from './todoStorage';
 import openModal from './newTaskModal';
-import { endOfWeek, format, min, startOfWeek } from 'date-fns';
+import { endOfWeek, format, isBefore, isToday, isTomorrow, min, parse, startOfWeek } from 'date-fns';
 
 export default (function taskList() {
 	const list = document.getElementById('todo-list');
@@ -88,10 +88,9 @@ function todoItemFactory(todo, updateCallback) {
 	item.appendChild(todoTitle);
 
 	// due date
-	const date = todo.dueDate;
 	const todoDate = document.createElement('span');
 	todoDate.classList.add('todo-date');
-	todoDate.textContent = date != '' ? date : 'No deadline';
+	todoDate.textContent = formatDate(todo.dueDate);
 	item.appendChild(todoDate);
 
 	// edit button
@@ -116,4 +115,23 @@ function todoItemFactory(todo, updateCallback) {
 	item.appendChild(deleteButton);
 
 	return item;
+}
+
+function formatDate(dueDate) {
+	if (!dueDate) {
+		return 'No deadline';
+	}
+
+	const date = parse(dueDate, 'yyyy-MM-dd', new Date());
+	if (isToday(date)) {
+		return 'Today';
+	}
+	if (isTomorrow(date)) {
+		return 'Tomorrow';
+	}
+	if (isBefore(date, new Date())) {
+		return 'Outdated';
+	}
+
+	return format(date, 'E, MMMM do');
 }

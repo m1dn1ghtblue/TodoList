@@ -92,7 +92,7 @@
 
 			.todo-date {
 				color: $primary;
-				padding: 0 36px;
+				padding: 0 18px;
 			}
 
 			.todo-edit-btn, .todo-delete-btn {
@@ -115,7 +115,7 @@
 			}
 
 			&[completed=true] {
-				.todo-title, .todo-date{
+				.todo-title, .todo-date, .todo-edit-btn, .todo-delete-btn{
 					opacity: 0.5;
 				}
 			}
