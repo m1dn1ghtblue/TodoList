@@ -3,12 +3,13 @@ import createUid from './uidGenerator';
 const MAX_PRIORITY = 3;
 
 export default class Todo {
-	constructor(title, dueDate, priority = 0) {
+	constructor(title, dueDate, priority = 0, projectId = null) {
 		this._id = 'todoid_' + createUid();
 		this.title = title;
 		this.dueDate = dueDate;
-		this._priority = priority;
+		this.priority = priority;
 		this._isCompleted = false;
+		this.projectId = projectId;
 	}
 
 	get priority() {
