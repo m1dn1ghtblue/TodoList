@@ -23,7 +23,9 @@ export default function openModal(todo = null) {
 		prioritySelect.value = todo.priority;
 	}
 
-	form.onsubmit = () => {
+	form.onsubmit = (event) => {
+		event.preventDefault();
+
 		const title = titleInput.value;
 		const dueDate = dateInput.value;
 		const priority = prioritySelect.value;
